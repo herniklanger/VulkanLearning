@@ -159,20 +159,25 @@
     <ClCompile Include="src\firstApp.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\device.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
+    <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\swapChain.cpp" />
     <ClCompile Include="src\pipeline.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\SimpleRenderSystem.h" />
     <ClInclude Include="src\GaneObject.h" />
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\firstApp.h" />
     <ClInclude Include="src\device.h" />
+    <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\swapChain.h" />
     <ClInclude Include="src\pipeline.h" />
     <ClInclude Include="src\window.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="compile.bat" />
     <None Include="src\Shaders\simpleShader.frag" />
     <None Include="src\Shaders\simpleShader.vert" />

@@ -1,11 +1,10 @@
 #pragma once
 
 #include "window.h"
-#include "pipeline.h"
 #include "device.h"
-#include "swapChain.h"
 #include "Model.h"
 #include "GaneObject.h"
+#include "Renderer.h"
 
 #include <memory>
 #include <vector>
@@ -29,21 +28,11 @@ namespace VulkanTest
 		void run();
 	private:
 		void loadGameObjects();
-		void createPipelineLayout();
-		void createPipeline();
-		void createCommandBuffers();
-		void freeCommandBuffer();
-		void drawFrame();
-		void recreateSwapChain();
-		void recordCommandBuffre(int imageIndex);
-		void renderGameObjects(VkCommandBuffer commandBuffer);
 
-		Window Window{ WIDTH, HEIGHT, "Hallow Vulkan!" };
-		Device device{ Window };
-		std::unique_ptr<SwapChain> swapChain;
-		std::unique_ptr<Pipeline> pipeline;
-		VkPipelineLayout pipelineLayour;
-		std::vector<VkCommandBuffer> commandBuffers;
+		Window window{ WIDTH, HEIGHT, "Hallow Vulkan!" };
+		Device device{ window };
+		Renderer renderer{ window, device };
+
 		std::vector<GameObject> gameObjects;
 	};
 
