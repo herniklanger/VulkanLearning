@@ -31,10 +31,6 @@ namespace VulkanTest {
 		glfwSetFramebufferSizeCallback(window, frameburfferResizeCallback);
 	}
 
-	bool Window::shouldClose()
-	{
-		return glfwWindowShouldClose(window);
-	}
 	void Window::createWindowSurface(VkInstance instance, VkSurfaceKHR *surface)
 	{
 		if (glfwCreateWindowSurface(instance, window, nullptr, surface) != VK_SUCCESS)

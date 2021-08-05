@@ -107,7 +107,7 @@ namespace VulkanTest
 			window.restedWindowResizedFlag();
 			recreateSwapChain();
 		}
-		if (result != VK_SUCCESS) {
+		else if (result != VK_SUCCESS) {
 			throw std::runtime_error("faild to present swap chain image!");
 		}
 
