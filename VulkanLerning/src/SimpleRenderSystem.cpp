@@ -15,8 +15,7 @@
 namespace VulkanTest
 {
 	struct SimpelPushConstantData {
-		glm::mat2 transform{ 1.f };
-		glm::vec2 offeset;
+		glm::mat4 transform{ 1.f };
 		alignas(16) glm::vec3 color;
 	};
 
@@ -71,12 +70,12 @@ namespace VulkanTest
 		pipeline->bind(commandBuffer);
 
 		for (auto& obj : gameObjects) {
-			obj.Transform2d.roatation = glm::mod(obj.Transform2d.roatation + 0.1f, glm::two_pi<float>());
+			obj.Transform.rotation.y = glm::mod(obj.Transform.rotation.y + 0.001f, glm::two_pi<float>());
+			obj.Transform.rotation.x = glm::mod(obj.Transform.rotation.x + 0.0005f, glm::two_pi<float>());
 
 			SimpelPushConstantData push{};
-			push.offeset = obj.Transform2d.translation;
 			push.color = obj.color;
-			push.transform = obj.Transform2d.mat2();
+			push.transform = obj.Transform.mat4();
 			vkCmdPushConstants(commandBuffer, pipelineLayour, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(SimpelPushConstantData), &push);
 			obj.model->bind(commandBuffer);
 			obj.model->draw(commandBuffer);
